@@ -1,7 +1,7 @@
 Source: fis-gtm
 Section: database
 Priority: extra
-Build-Depends: debhelper (>= 8),
+Build-Depends: debhelper (>= 9),
  libicu-dev, tcsh, gnupg, zlib1g-dev, libncurses-dev, libgcrypt11-dev, libgpgme11-dev,
  linux-libc-dev, gcc-multilib, cmake, libelf-dev
 Standards-Version: 3.9.3
