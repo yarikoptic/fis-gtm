@@ -3,8 +3,8 @@ Section: science
 Priority: extra
 Build-Depends: debhelper (>= 8), adduser, ucf, po-debconf,
  libicu-dev, tcsh, gnupg, zlib1g-dev, libncurses-dev, libgcrypt11-dev, libgpgme11-dev,
- linux-libc-dev, gcc-multilib, cmake
-Standards-Version: 3.9.2
+ linux-libc-dev, gcc-multilib, cmake, libelf-dev
+Standards-Version: 3.9.3
 Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
 DM-Upload-Allowed: yes
 Uploaders: Andreas Tille <tille@debian.org>,
@@ -16,7 +16,7 @@ Vcs-Svn: svn://svn.debian.org/debian-med/trunk/packages/fis-gtm/fis-gtm/trunk
 
 Package: fis-gtm
 Architecture: amd64 i386
-Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, ucf
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, ucf, libicu-dev
 Description: package for FIS-GT.M database
  GT.M is a database engine with scalability proven in large real-time
  transaction processing systems that have thousands of concurrent
