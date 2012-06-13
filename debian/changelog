@@ -11,7 +11,24 @@ fis-gtm (5.5-000-1) UNRELEASED; urgency=low
   * debian/control:
     Added cmake as a build dependency.
 
- -- Luis Ibanez <luis.ibanez@kitware.com>  Sat, 24 Mar 2012 18:34:02 -0500
+  [ Yaroslav Halchenko ]
+  * debian/control:
+    - boosted policy and added few -dev packages we know to be needed
+    - removed unused ATM adduser, ucf, debconf from *Depends
+    - provide both meta and versioned fis-gtm packages
+    - boosted policy to 3.9.3
+    - boosted dh compat 9 to get hardening flags automagically
+  * debian/copyright:
+    - adjusted for DEP5
+  * debian/rules:
+    - disable call to gtminstall at package build time:
+      upstream relies on the installdir path internally so "$test" command
+      used in various tools would not work rendering system broken according
+      to upstream
+    - generate lintian-overrides for shlib-with-executable-stack
+    - provide dumped from web changelog for the most recent release
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Wed, 13 Jun 2012 19:27:19 -0400
 
 fis-gtm (5.4-002B-1) UNRELEASED; urgency=low
 
