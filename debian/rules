@@ -7,18 +7,29 @@
 
 SRC_EXTRAS_DIR=fis-gtm-src-extras
 
-PKG := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
+SRCPKG := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
+BINPKG := $(shell awk '/Package:.*[0-9]/{print $$2;}' debian/control)
 
 %:
-	dh $@ 
+	dh $@
 
 override_dh_auto_configure:
+	@echo "I: copyring pre-generated bootstrap files to build GT.M"
 	cp -a ./$(SRC_EXTRAS_DIR)/* .
-	cmake .
 	dh_auto_configure
 
+# At some point in the future, GT.M developers will support DESTDIR
+# and then it will look like:
+#override_dh_auto_install:
+#	./pro/gtminstall --utf8 default --installdir /usr/lib/fis-gtm/VERSION DESTDIR=$(CURDIR)/debian/tmp
+
 override_dh_auto_install:
-	./pro/gtminstall --utf8 default --installdir $(CURDIR)/debian/tmp
+	dh_auto_install -- --destdir=debian/$(BINPKG)
 
 get-orig-source:
 	uscan --verbose --force-download
+
+override_dh_auto_clean:
+	dh_auto_clean
+	for f in ./$(SRC_EXTRAS_DIR)/*; do \
+		echo rm -f $$(basename $$f); done
