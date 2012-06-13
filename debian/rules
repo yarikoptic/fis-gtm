@@ -29,9 +29,9 @@ override_dh_auto_configure:
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/$(BINPKG) $@
 
-override_dh_links:
+override_dh_link:
 	echo '/usr/lib/fis-gtm/$(UVERDIR) /usr/lib/fis-gtm/current' > debian/fis-gtm.links
-	dh_links
+	dh_link
 
 get-orig-source:
 	uscan --verbose --force-download
@@ -42,5 +42,5 @@ override_dh_auto_clean:
 	#		rm -rf $$(basename $$f); done
 	rm -f debian/fis-gtm.links
 
-override_dh_install_changelogs:
-	dh_install_changelogs $@ debian/upstream-files/GTM_V5.5-000_Release_Notes.html
+override_dh_installchangelogs:
+	dh_installchangelogs debian/upstream-files/GTM_V5.5-000_Release_Notes.html
