@@ -2,6 +2,10 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 Upstream-Name: fis-gtm
 Upstream-Contact: http://sourceforge.net/mailarchive/forum.php?forum_name=fis-gtm-core
 Source: http://sf.net/fis-gtm/gtm_V(.*)_linux_i686_pro\.tar\.gz
+Comment: .
+ Support with assured service levels on commercial terms can be
+ purchased from gtmsupport@fnis.com.
+
 
 Files: *
 Copyright: 1987 - 2003 Sanchez Computer Associates
