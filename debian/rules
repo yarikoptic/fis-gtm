@@ -41,3 +41,6 @@ override_dh_auto_clean:
 	#for f in ./$(SRC_EXTRAS_DIR)/*; do \
 	#		rm -rf $$(basename $$f); done
 	rm -f debian/fis-gtm.links
+
+override_dh_install_changelogs:
+	dh_install_changelogs $@ debian/upstream-files/GTM_V5.5-000_Release_Notes.html
