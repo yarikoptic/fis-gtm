@@ -1,7 +1,7 @@
-fis-gtm (5.5-000) UNRELEASED; urgency=low
+fis-gtm (5.5-000-1) UNRELEASED; urgency=low
 
   [ Luis Ibanez ]
-  * Initial release, helps to close #541239
+  * Initial release (Closes: #541239)
   * New upstream version 5.5
   * Adding cmake configuration to facilitate builds in multiple platforms.
   * debian/rules:
@@ -70,6 +70,6 @@ fis-gtm (5.4-002B-1) UNRELEASED; urgency=low
 
 fis-gtm (5.4-002A-1) UNRELEASED; urgency=low
 
-  * Initial release (Closes: #541239)
+  * Initial attempt to package
 
  -- Thorsten Alteholz <debian@alteholz.de>  Mon, 13 Jun 2011 19:34:17 +0200
