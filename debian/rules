@@ -33,6 +33,13 @@ override_dh_link:
 	echo '/usr/lib/fis-gtm/$(UVERDIR) /usr/lib/fis-gtm/current' > debian/fis-gtm.links
 	dh_link
 
+# Because 'the' binary package name will change, let's just generate
+# override files
+# The override is needed according to upstream for GTM to generate executable 'call-in's
+override_dh_lintian:
+	echo "$(BINPKG) binary: shlib-with-executable-stack usr/lib/fis-gtm/*/libgtmshr.so" > debian/$(BINPKG).lintian-overrides
+	dh_lintian
+
 get-orig-source:
 	uscan --verbose --force-download
 
