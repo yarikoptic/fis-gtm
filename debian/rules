@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# debian/rules for fis-gtm
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+SRC_EXTRAS_DIR=fis-gtm-src-extras
+
+PKG := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+	cp -a ./$(SRC_EXTRAS_DIR)/* .
+	cmake .
+	dh_auto_configure
+
+override_dh_auto_install:
+	./pro/gtminstall --utf8 default --installdir $(CURDIR)/debian/tmp
+
+get-orig-source:
+	uscan --verbose --force-download

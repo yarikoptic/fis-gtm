@@ -1,0 +1,50 @@
+Source: fis-gtm
+Section: science
+Priority: extra
+Build-Depends: debhelper (>= 8), adduser, ucf, po-debconf,
+ libicu-dev, tcsh, gnupg, zlib1g-dev, libncurses-dev, libgcrypt11-dev, libgpgme11-dev,
+ linux-libc-dev, gcc-multilib, cmake
+Standards-Version: 3.9.2
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+DM-Upload-Allowed: yes
+Uploaders: Andreas Tille <tille@debian.org>,
+         Thorsten Alteholz <debian@alteholz.de>,
+         Luis Ibanez <luis.ibanez@kitware.com>
+Homepage: http://sourceforge.net/projects/fis-gtm
+Vcs-Browser: http://svn.debian.org/wsvn/debian-med/trunk/packages/fis-gtm/fis-gtm/trunk
+Vcs-Svn: svn://svn.debian.org/debian-med/trunk/packages/fis-gtm/fis-gtm/trunk
+
+Package: fis-gtm
+Architecture: amd64 i386
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, ucf
+Description: package for FIS-GT.M database
+ GT.M is a database engine with scalability proven in large real-time
+ transaction processing systems that have thousands of concurrent
+ users, individual database file sizes to the Terabyte range (with
+ virtually unlimited aggregate database sizes).  Yet the light
+ footprint of GT.M allows it to also scale down for use in small
+ applications and software appliances (virtual machines).
+ .
+ The GT.M data model is hierarchical associative memory (i.e.,
+ multi-dimensional array) that imposes no restrictions on the data
+ types of the indexes or content - the application logic can impose
+ any schema, dictionary or data organization suited to its problem
+ domain.  (Database engines that do not impose schemas, but which
+ allow layered application software to impose and use whatever schema
+ that is appropriate to the application are popularly referred to as
+ "document oriented", "schemaless" or "schema-free" databases.)
+ .
+ GT.M's compiler for the standard M (also known as MUMPS) scripting
+ language implements full support for ACID (Atomic, Consistent,
+ Isolated, Durable) transactions, using optimistic concurrency control
+ and software transactional memory (STM) that resolves the common
+ mismatch between databases and programming languages. Its unique
+ ability to create and deploy logical multi-site configurations of
+ applications provides unrivaled continuity of business in the face of
+ not just unplanned events, but also planned events, including planned
+ events that include changes to application logic and schema.
+ .
+ Community support forums for GT.M can be found at
+ http://sourceforge.net/projects/fis-gtm and support with assured
+ service levels on commercial terms can be purchased from
+ gtmsupport@fnis.com.

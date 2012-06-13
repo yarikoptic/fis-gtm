@@ -1,0 +1,5 @@
+version=3
+opts="dversionmangle=s/[.-]//g" \
+    http://sf.net/fis-gtm/gtm_V(.*)_linux_i686_src\.tar\.gz \
+    debian debian/get-orig-source
+
