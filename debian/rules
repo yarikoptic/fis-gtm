@@ -7,6 +7,9 @@
 
 SRC_EXTRAS_DIR=fis-gtm-src-extras
 
+ARCH := $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
+UVER := $(shell LC_ALL=C dpkg-parsechangelog | awk '/^Version:/{print $$2;}' | sed -e 's,-[^-]*$$,,g')
+UVERDIR := V$(UVER)_$(ARCH)
 SRCPKG := $(shell dpkg-parsechangelog | sed -n 's/^Source: //p')
 BINPKG := $(shell awk '/Package:.*[0-9]/{print $$2;}' debian/control)
 
@@ -16,15 +19,19 @@ BINPKG := $(shell awk '/Package:.*[0-9]/{print $$2;}' debian/control)
 override_dh_auto_configure:
 	@echo "I: copyring pre-generated bootstrap files to build GT.M"
 	cp -a ./$(SRC_EXTRAS_DIR)/* .
-	dh_auto_configure
+	dh_auto_configure -- -DCMAKE_INSTALL_PREFIX:PATH=/usr/lib/fis-gtm/$(UVERDIR)
 
 # At some point in the future, GT.M developers will support DESTDIR
 # and then it will look like:
 #override_dh_auto_install:
-#	./pro/gtminstall --utf8 default --installdir /usr/lib/fis-gtm/VERSION DESTDIR=$(CURDIR)/debian/tmp
+#	./pro/gtminstall --utf8 default --installdir /usr/lib/fis-gtm/VERSION DESTDIR=$(CURDIR)/debian/$(BINPKG)
 
 override_dh_auto_install:
-	dh_auto_install -- --destdir=debian/$(BINPKG)
+	dh_auto_install --destdir=debian/$(BINPKG) $@
+
+override_dh_links:
+	echo '/usr/lib/fis-gtm/$(UVERDIR) /usr/lib/fis-gtm/current' > debian/fis-gtm.links
+	dh_links
 
 get-orig-source:
 	uscan --verbose --force-download
@@ -33,3 +40,4 @@ override_dh_auto_clean:
 	dh_auto_clean
 	for f in ./$(SRC_EXTRAS_DIR)/*; do \
 		echo rm -f $$(basename $$f); done
+	rm -f debian/fis-gtm.links
