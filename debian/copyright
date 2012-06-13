@@ -1,15 +1,40 @@
-Format: http://dep.debian.net/deps/dep5
-Upstream-Name: fis-gtm-initial
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+Upstream-Name: fis-gtm
+Upstream-Contact: http://sourceforge.net/mailarchive/forum.php?forum_name=fis-gtm-core
 Source: http://sf.net/fis-gtm/gtm_V(.*)_linux_i686_pro\.tar\.gz
 
 Files: *
 Copyright: 1987 - 2003 Sanchez Computer Associates
-           1987 - 2011 Fidelity Information Services, Inc
+           1987 - 2012 Fidelity Information Services, Inc
 Comment:   Sanchez Computer Associates was acquired by FIS in 2004
+License: AGPL-3.0
+
+Files: debian/*
+Copyright: 2011 Thorsten Alteholz <debian@alteholz.de>
+License: GPL-2+
+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
 License: AGPL-3.0
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
- . 
+ .
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
@@ -667,22 +692,3 @@ License: AGPL-3.0
   You should also get your employer (if you work as a programmer) or school,
  if any, to sign a "copyright disclaimer" for the program, if necessary.
  For more information on this, and how to apply and follow the GNU AGPL, see
-
-Files: debian/*
-Copyright: 2011 Thorsten Alteholz <debian@alteholz.de>
-License: GPL-2+
- This package is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <http://www.gnu.org/licenses/>
- .
- On Debian systems, the complete text of the GNU General
- Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
